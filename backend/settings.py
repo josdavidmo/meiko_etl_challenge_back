@@ -19,16 +19,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'i66f_agsr^q9wsca(+t6bv0^a17ool!lwf(y(b0+55bu)3+^1g'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ['DEBUG']
 
 ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
   'django.contrib.admin',
   'django.contrib.auth',
   'django.contrib.contenttypes',
@@ -36,6 +36,14 @@ INSTALLED_APPS = [
   'django.contrib.messages',
   'django.contrib.staticfiles',
 ]
+
+THIRD_APPS = []
+
+LOCAL_APPS = [
+  'movies.apps.MoviesConfig'
+]
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
   'django.middleware.security.SecurityMiddleware',
@@ -118,3 +126,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(os.environ['STORAGE_PATH'], 'static')
+
+# Fixture
+# https://docs.djangoproject.com/en/2.2/howto/initial-data/#providing-data-with-fixtures
+FIXTURE_DIRS = (
+  os.path.join(BASE_DIR, 'fixtures'),
+)
