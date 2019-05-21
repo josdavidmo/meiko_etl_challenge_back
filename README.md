@@ -47,8 +47,81 @@ Just clic on filter menu.
 
 5. Expose through an API-Rest the necessary endpoints that allow:
 
-- Return all movies in which an actor has participated
-- Return all films directed by a director, sorted by year of publication
-- Return to the movies grouped by gender and order by major collection
+- Return all movies in which an actor has participated. Go to [http://localhost/movies/moviebyactor/]
+```
+{
+    "count": 2096,
+    "next": "http://localhost/movies/moviebyactor/?page=2",
+    "previous": null,
+    "results": [
+        {
+            "actor_1_name": "50 Cent",
+            "movie_titles": [
+                "Get Rich or Die Tryin'",
+                "Get Rich or Die Tryin'",
+                "Get Rich or Die Tryin'",
+                "Get Rich or Die Tryin'"
+            ],
+            "total": 4
+        },
+        {
+            "actor_1_name": "A.J. Buckley",
+            "movie_titles": [
+                "The Good Dinosaur",
+                "The Good Dinosaur",
+                "The Good Dinosaur",
+                "The Good Dinosaur"
+            ],
+            "total": 4
+        },
+       ...
+```
+- Return all films directed by a director, sorted by year of publication. Go to [http://localhost/movies/moviebydirector/]
+```
+{
+    "count": 2398,
+    "next": null,
+    "previous": "http://localhost/movies/moviebydirector/?page=239",
+    "results": [
+        {
+            "director_name": "Zackary Adler",
+            "movie_titles": [
+                "The Rise of the Krays",
+                "The Rise of the Krays",
+                "The Rise of the Krays",
+                "The Rise of the Krays"
+            ],
+            "total": 4
+        },
+       ...
+```
+- Return to the movies grouped by gender and order by major collection. Go to [http://localhost/movies/moviebygender/]
+```
+{
+    "count": 26,
+    "next": "http://localhost/movies/moviebygender/?page=2",
+    "previous": null,
+    "results": [
+        {
+            "genre": "Drama",
+            "movie_titles": [
+                "The Skulls",
+                "My Summer of Love",
+                "The Lunchbox",
+                "Yes",
+                "You Can't Take It with You",
+                "From Here to Eternity",
+                "Grace Unplugged",
+                "Foolish",
+                "N-Secure",
+                "Caramel",
+                "The Bubble",
+                "The Conversation",
+                "Mississippi Mermaid",
+                "I Love Your Work",
+                ...
+```
 
 The above endpoints are read-only.
+
+
