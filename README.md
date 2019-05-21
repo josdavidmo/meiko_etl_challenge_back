@@ -32,7 +32,7 @@ It will be created into fixtures folder.
 
 3. Using the Django’ Admin, register the models you consider in order to generate a dashboard that is close enough to the structure of the movies file.
 
-You can see it in admin.py file. Here is some screen shots:
+You can see it in admin.py file. The username and password are in [movies.env](https://github.com/josdavidmo/meiko_etl_challenge/blob/master/envs/movies.env) Here is some screen shots:
 
 ![alt text](https://github.com/josdavidmo/meiko_etl_challenge_back/blob/master/doc/admin.png?raw=true)
 
