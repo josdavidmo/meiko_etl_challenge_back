@@ -56,9 +56,9 @@ class MovieByGenderList(generics.ListAPIView):
     serializer_class = MovieByGenderSerializer
 
     def get_queryset(self):
-        qs = Movie.objects.annotate(genre=Func(F('genres'),
-                                               function='unnest')).values(
+        qs = Movie.objects.annotate(genre=Func(F("genres"),
+                                               function="unnest")).values(
             "genre").annotate(total=Count("movie_title"),
                               movie_titles=GroupConcat(
-                                  "movie_title")).order_by('-total')
+                                  "movie_title")).order_by("-total")
         return [MoviesByGender(**moviebygender) for moviebygender in qs]
