@@ -8,10 +8,13 @@ Download the necessary movies file
 
 It is really hard to tell you that I take all data and put it into one model, but I have a reason for that: I am using Postgres. So, I take advantage on it Array Fields in order to make it extensible for all gendres, directors, and actors. This is the model:
 
+![alt text](https://github.com/josdavidmo/meiko_etl_challenge_back/blob/master/doc/models.png?raw=true)
+
+I do not have enought time to made the pytest. But, I know how to do it.
 
 2. Develop a new Django custom command that allows transforming the content of the movies file to a JSON format so that the initial loading of the database is done through fixtures. At this point the performance is important, show by console the time it takes the command to do its work.
 
-The command that I develop was `importdata` it receives the movie csv file compress. You can set the workers number with `k` in order to runing in a multitask. So the taken time will going down based on the number of workers. By default, it takes the number of CPU to runing.
+The command that I develop was [importdata](https://github.com/josdavidmo/meiko_etl_challenge_back/blob/master/movies/management/commands/importmovies.py) it receives the movie csv [file](https://github.com/josdavidmo/meiko_etl_challenge_back/blob/master/data/movie_metadata.tar.xz) compress. You can set the workers number with `k` in order to runing in a multitask. So the taken time will going down based on the number of workers. By default, it takes the number of CPU to runing.
 
 ```
 movies_1    | Successfully creation fixtures: 0.491 <-- csv to json just take this!
@@ -31,6 +34,8 @@ It will be created into fixtures folder.
 
 You can see it in admin.py file. Here is some screen shots:
 
+![alt text](https://github.com/josdavidmo/meiko_etl_challenge_back/blob/master/doc/admin.png?raw=true)
+
 4. In the admin, generate the necessary custom filters for these in ability to show the result of the following questions:
 
 - Which are the 10 movies that raised the most money?
@@ -45,9 +50,11 @@ At least 5 of the above filters must be implemented, an additional score is give
 
 Just clic on filter menu.
 
+![alt text](https://github.com/josdavidmo/meiko_etl_challenge_back/blob/master/doc/admin2.png?raw=true)
+
 5. Expose through an API-Rest the necessary endpoints that allow:
 
-- Return all movies in which an actor has participated. Go to [http://localhost/movies/moviebyactor/]
+- Return all movies in which an actor has participated. Go to [http://localhost/movies/moviebyactor/](http://localhost/movies/moviebyactor/)
 ```
 {
     "count": 2096,
@@ -76,7 +83,7 @@ Just clic on filter menu.
         },
        ...
 ```
-- Return all films directed by a director, sorted by year of publication. Go to [http://localhost/movies/moviebydirector/]
+- Return all films directed by a director, sorted by year of publication. Go to [http://localhost/movies/moviebydirector/](http://localhost/movies/moviebydirector/)
 ```
 {
     "count": 2398,
@@ -95,7 +102,7 @@ Just clic on filter menu.
         },
        ...
 ```
-- Return to the movies grouped by gender and order by major collection. Go to [http://localhost/movies/moviebygender/]
+- Return to the movies grouped by gender and order by major collection. Go to [http://localhost/movies/moviebygender/](http://localhost/movies/moviebygender/)
 ```
 {
     "count": 26,
